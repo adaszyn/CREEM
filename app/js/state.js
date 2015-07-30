@@ -49,25 +49,73 @@ CREEMapp.config(function($stateProvider, $urlRouterProvider) {
                 url: "/legal_limits",
                 templateUrl: "js/partials/views/buildingData/legalLimits.html"
             })
+            .state('buildingData.mattSurfaces', {
+                url: "/matt_surfaces",
+                templateUrl: "js/partials/views/buildingData/mattSurfaces.html"
+            })
             .state('buildingData.transparentComponents', {
                 url: "/transparent_components",
                 templateUrl: "js/partials/views/buildingData/transparentComponents.html"
             })
         .state('consumptionAnalysis', {
-            url: "/consumptio_analysis",
-            templateUrl: "js/partials/views/consumptionAnalysis.html"
+            url: "/consumption_analysis",
+            templateUrl: "js/partials/views/consumptionAnalysis/main.html"
         })
+            .state('consumptionAnalysis.dataFromField', {
+                url: "/data_from_field",
+                templateUrl: "js/partials/views/consumptionAnalysis/dataFromField.html"
+            })
+            .state('consumptionAnalysis.importConsumption', {
+                url: "/import_consumption",
+                templateUrl: "js/partials/views/consumptionAnalysis/importConsumption.html"
+            })
+            .state('consumptionAnalysis.dailyProfile', {
+                url: "/daily_profile",
+                templateUrl: "js/partials/views/consumptionAnalysis/dailyProfile.html"
+            })
+            .state('consumptionAnalysis.weeklyProfile', {
+                url: "/weekly_profile",
+                templateUrl: "js/partials/views/consumptionAnalysis/weeklyProfile.html"
+            })
+            .state('consumptionAnalysis.historicalConsumption', {
+                url: "/historical_consumption",
+                templateUrl: "js/partials/views/consumptionAnalysis/historicalConsumption.html"
+            })
         .state('diagnosis', {
             url: "/diagnosis",
-            templateUrl: "js/partials/views/diagnosis.html"
+            templateUrl: "js/partials/views/diagnosis/main.html"
         })
-        .state('optimizer', {
-            url: "/optimizer",
-            templateUrl: "js/partials/views/optimizer.html"
-        })
+            .state('diagnosis.energyPerformance', {
+                url: "/energy_performance",
+                templateUrl: "js/partials/views/diagnosis/energyPerformance.html"
+            })
         .state('budget', {
             url: "/budget",
-            templateUrl: "js/partials/views/budget.html"
+            templateUrl: "js/partials/views/budget/main.html"
+        })
+            .state('budget.consumptionPrediction', {
+                url: "/consumption_prediction",
+                templateUrl: "js/partials/views/budget/consumptionPrediction.html"
+            })
+            .state('budget.lastYear', {
+                url: "/last_year",
+                templateUrl: "js/partials/views/budget/lastYear.html"
+            })
+            .state('budget.globalData', {
+                url: "/global_data",
+                templateUrl: "js/partials/views/budget/globalData.html"
+            })
+            .state('budget.importBudget', {
+                url: "/import_budget",
+                templateUrl: "js/partials/views/budget/importBudget.html"
+            })
+            .state('budget.importAccountings', {
+                url: "/import_accountings",
+                templateUrl: "js/partials/views/budget/importAccountings.html"
+            })
+        .state('optimizer', {
+            url: "/optimizer",
+            templateUrl: "js/partials/views/optimizer/main.html"
         })
 
 });
