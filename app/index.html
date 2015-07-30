@@ -27,10 +27,11 @@
     <link href="bootstrap/css/bootstrap-table.css" rel="stylesheet" media="screen">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/buttons.css" rel="stylesheet" media="screen">
-
+    <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-default.min.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<>
 <div class="container_16" id="wrapper">
     <div header></div>
 
@@ -61,11 +62,18 @@
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
-
+<script src="bower_components/ngDialog/js/ngDialog.min.js"></script>
 <!--DIRECTIVES-->
 <script src="js/directives/HeaderDirective.js"></script>
 <script src="js/directives/FooterDirective.js"></script>
 <!--STATE-->
 <script src="js/state.js"></script>
+
+<!--CONROLLERS-->
+<script src="js/controllers/HeaderCtrl.js"></script>
+
+<!--MODALS-->
+<script type="text/ng-template" id="building-select" src="js/partials/modals/buildingSelect.html"></script>
+
 </body>
 </html>
