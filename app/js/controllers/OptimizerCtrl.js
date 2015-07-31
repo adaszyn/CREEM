@@ -60,16 +60,11 @@ CREEMapp.controller("OptimizerCtrl", ['$scope', '$http', function($scope, $http)
         }
     });
 
-    $scope.getBuildingData = function () {
-        return $http.get("http://localhost:8080/buildings");
-    };
-
     $scope.getBuildingChart = function () {
-        $scope.getBuildingData()
-            .then(function (data) {
-                if (!data.data.length) return;
-                chart.dataProvider = [];
-                data.data.forEach(function (element) {
+        $http.get("http://localhost:8080/buildings")
+            .then(function (response) {
+                if (response.status != 200) return;
+                response.data.forEach(function (element) {
                     chart.dataProvider.push({
                         x: element.densita_energia_anno,
                         y: element.energia_totale_anno,
