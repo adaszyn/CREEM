@@ -21,7 +21,7 @@ CREEMapp.controller("OptimizerCtrl", ['$scope', '$http', function($scope, $http)
             gridColor: "grey",
             tickColor: "grey",
             lineThickness: 0,
-            minimum: -2000,
+            minimum: -2000
         }, {
             minMaxMultiplier: 1.2,
             axisAlpha: 0,
@@ -33,7 +33,7 @@ CREEMapp.controller("OptimizerCtrl", ['$scope', '$http', function($scope, $http)
             tickColor: "grey",
             lineThickness: 0,
             valueFormatString:"#,##0k,.",
-            minimum: -1000000,
+            minimum: -1000000
         }],
         startDuration: 1.5,
         graphs: [{
@@ -58,11 +58,11 @@ CREEMapp.controller("OptimizerCtrl", ['$scope', '$http', function($scope, $http)
         export: {
             enabled: true
         }
-    })
+    });
 
     $scope.getBuildingData = function () {
         return $http.get("http://localhost:8080/buildings");
-    }
+    };
 
     $scope.getBuildingChart = function () {
         $scope.getBuildingData()
@@ -76,7 +76,7 @@ CREEMapp.controller("OptimizerCtrl", ['$scope', '$http', function($scope, $http)
                         value: element.potenza_picco,
                         label: element.pod
                     });
-                })
+                });
                 chart.validateData();
             })
     };
