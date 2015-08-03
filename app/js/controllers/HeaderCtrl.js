@@ -1,4 +1,4 @@
-CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http', 'ngTableParams', '$filter', function($scope, ngDialog, RESTaddress, $http, ngTableParams, $filter){
+CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http', 'ngTableParams', '$filter','CreemSettings', function($scope, ngDialog, RESTaddress, $http, ngTableParams, $filter, CreemSettings){
     var buildings = [],
         isCached = false;
     $scope.selectedBuilding = {
@@ -50,5 +50,4 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
             className: 'ngdialog-theme-default'
         });
     };
-
 }]);

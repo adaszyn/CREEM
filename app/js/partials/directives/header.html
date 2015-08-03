@@ -32,32 +32,6 @@
 <div class="grid_16">
 
     <div style="background-color: #689102;">
-        <div class="btn-group" style="margin: 4px; margin-left: 15px;">
-            <button class="btn btn-sm dropdown-toggle round" type="button" data-toggle="dropdown" aria-expanded="false"
-                    style="background-color: #486401; border-color: #486401;" onclick="$('#menutabs a[href=#tab-menu]').trigger('click');">
-                Menu
-
-            </button>
-        </div>
-        <div class="btn-group" style="margin: 3px; margin-left: 3px;">
-
-            <button class="btn btn-sm dropdown-toggle round"
-                    type="button"
-                    data-toggle="dropdown"
-                    aria-expanded="false"
-                    style="background-color: #486401; border-color: #486401;">
-                <img src="images/icon_building_white.png" style="height: 20px; padding-right: 5px;">
-                <span id="immobile_selezionato"></span>
-                <span class="caret"></span>
-                {{selectedBuilding.current.codice}}
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a class="btn"
-                       ng-click="showBuildings()"
-                       data-toggle="modal"
-                       data-target="#modal-seleziona-immobile">Seleziona Immobile</a></li>
-            </ul>
-        </div>
-        
+        <div settings-directive></div>
     </div>
 </div>

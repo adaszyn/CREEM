@@ -1,0 +1,26 @@
+<style>
+    .settings {
+        width: 100%;
+        float: left;
+        font-size: 1.2em;
+        text-align: center;
+        color: white;
+        display: flex;
+    }
+    .settings div:nth-child(1) { background-color: #2e6da4; }
+    .settings div:nth-child(2) { background-color: darkred; }
+    .settings div:nth-child(3) { background-color: darkgoldenrod; }
+    .settings div:nth-child(4) { background-color: darkgreen; }
+    .settings div:nth-child(5) { background-color: darkmagenta; }
+    .settings > div{
+        flex-grow: 1;
+    }
+
+</style>
+<div class="settings">
+    <div ng-if="buildings.quantity">{{buildings.quantity}}</div>
+    <div ng-if="clusters.quantity">{{clusters.quantity}}</div>
+    <div ng-if="provinces.quantity">{{provinces.quantity}}</div>
+    <div ng-if="buildingsConsumption.quantity">{{buildingsConsumption.quantity}}</div>
+    <div ng-if="dateRange.visible">{{dateRange}}</div>
+</div>

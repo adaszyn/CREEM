@@ -1,6 +1,7 @@
-CREEMapp.directive("Settings", function () {
-   return {
+CREEMapp.directive("settingsDirective",['$rootScope','CreemSettings', function ($rootScope, CreemSettings) {
+    return {
        restrict: 'A',
-       template: "<div>E:</div>"
-   }
-});
+       templateUrl: "js/partials/directives/settings.html",
+       controller: 'SettingsCtrl'
+    }
+}]);

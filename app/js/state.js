@@ -11,7 +11,8 @@ CREEMapp.config(function($stateProvider, $urlRouterProvider) {
         })
             .state('globalView.map', {
                 url: "/map",
-                templateUrl: "js/partials/views/globalView/map.html"
+                templateUrl: "js/partials/views/globalView/map.html",
+                controller: 'MapCtrl'
             })
             .state('globalView.properties', {
                 url: "/properties",
