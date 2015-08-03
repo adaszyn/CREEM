@@ -1,3 +1,8 @@
+/**
+ * @controller
+ * @name HeaderCtrl
+ * @dependencies scope, ngDialog, RESTaddress, $http
+ */
 CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http', 'ngTableParams', '$filter', function($scope, ngDialog, RESTaddress, $http, ngTableParams, $filter){
     var buildings = [],
         isCached = false;
