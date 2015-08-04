@@ -1,0 +1,10 @@
+
+<div id="scrollable-area">
+    <form>
+        Cluster Energy
+        <select ng-options="cluster for cluster in clusters" ng-model="selectedCluster.temp"></select>
+        <button class="btn btn-default" ng-click="cancelClusterSelect()">Cancel</button>
+        <button ng-class="selectedCluster.temp ? 'btn btn-success' : 'btn disabled'" ng-click="submitClusterSelect()">Submit</button>
+    </form>
+</div>
+

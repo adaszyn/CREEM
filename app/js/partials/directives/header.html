@@ -40,7 +40,6 @@
             </button>
         </div>
         <div class="btn-group" style="margin: 3px; margin-left: 3px;">
-
             <button class="btn btn-sm dropdown-toggle round"
                     type="button"
                     data-toggle="dropdown"
@@ -58,6 +57,24 @@
                        data-target="#modal-seleziona-immobile">Seleziona Immobile</a></li>
             </ul>
         </div>
+        <div class="col-md-6">
+            <p class="input-group">
+                <input type="date" class="form-control" datepicker-popup ng-model="dateFrom" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p class="input-group">
+                <input type="date" class="form-control" datepicker-popup ng-model="dateTo" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+        <button ng-click="showClusters()">Clusters</button>
+        <button ng-click="showProvinces()">Provinces</button>
         
     </div>
 </div>
