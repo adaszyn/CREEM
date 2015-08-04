@@ -1,5 +1,9 @@
 /**
- * Created by root on 7/30/15.
+ * Created by wojtek on 7/30/15.
+ * @name OptimizerController
+ * @class CREEMapp.OptimizerController
+ * @requires $scope, $http
+ * @description Controller for the optimizer view.
  */
 CREEMapp.controller("OptimizerCtrl", ['$scope', '$http', function($scope, $http) {
     $scope.buildingData = [];

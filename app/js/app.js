@@ -1,5 +1,6 @@
 'use strict';
 /**
+ * @namespace CREEMapp
  * @module
  * CREEMapp
  */
