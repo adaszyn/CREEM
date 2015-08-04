@@ -32,18 +32,32 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
     });
     /**
      * @function
-     * @name cancelBuildingSelect
+     * @name cancelSelect
      * @memberOf CREEMapp.HeaderCtrl
-     * @description Cancels building selection and closes dialog.
+     * @description Cancels selected element and closes dialog.
+     * @param selected
      */
-    $scope.cancelBuildingSelect= function () {
-        $scope.selectedBuilding.temp = undefined;
+    $scope.cancelSelect= function (selected) {
+        selected.temp = undefined;
         ngDialog.closeAll();
     };
-    $scope.submitBuildingSelect = function () {
-        $scope.selectedBuilding.current = $scope.selectedBuilding.temp;
+    /**
+     * @function
+     * @name submitSelect
+     * @memberOf CREEMapp.HeaderCtrl
+     * @description Submits selected element and closes dialog.
+     * @param selected
+     */
+    $scope.submitSelect = function (selected) {
+        selected.current = selected.temp;
         ngDialog.closeAll();
     };
+    /**
+     * @function
+     * @name showBuildings
+     * @memberOf CREEMapp.HeaderCtrl
+     * @description Loading buildingSelect.html for selection of buildings
+     */
     $scope.showBuildings = function () {
         ngDialog.open({
             template: 'js/partials/modals/buildingSelect.html',
@@ -60,15 +74,12 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
         temp: undefined,
         current: undefined
     };
-
-    $scope.cancelClusterSelect= function () {
-        $scope.selectedCluster.temp = undefined;
-        ngDialog.closeAll();
-    };
-    $scope.submitClusterSelect = function () {
-        $scope.selectedCluster.current = $scope.selectedCluster.temp;
-        ngDialog.closeAll();
-    };
+    /**
+     * @function
+     * @name showClusters
+     * @memberOf CREEMapp.HeaderCtrl
+     * @description Loading clusterSelect.html for selection of clusters
+     */
     $scope.showClusters = function () {
         ngDialog.open({
             template: 'js/partials/modals/clusterSelect.html',
@@ -86,15 +97,12 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
         temp: undefined,
         current: undefined
     };
-
-    $scope.cancelProvinceSelect= function () {
-        $scope.selectedProvince.temp = undefined;
-        ngDialog.closeAll();
-    };
-    $scope.submitProvinceSelect = function () {
-        $scope.selectedProvince.current = $scope.selectedProvince.temp;
-        ngDialog.closeAll();
-    };
+    /**
+     * @function
+     * @name showProvinces
+     * @memberOf CREEMapp.HeaderCtrl
+     * @description Loading provinceSelect.html for selection of provinces
+     */
     $scope.showProvinces = function () {
         ngDialog.open({
             template: 'js/partials/modals/provinceSelect.html',
@@ -104,6 +112,19 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
 
     //==========================================================================================
 
+    /**
+     * @function
+     * @name showDates
+     * @memberOf CREEMapp.HeaderCtrl
+     * @description Loading dataSelect.html for selection of provinces
+     */
+    $scope.showDates = function () {
+        ngDialog.open({
+            template: 'js/partials/modals/dataSelect.html',
+            className: 'ngdialog-theme-default'
+        });
+    }
+
     $scope.today = function() {
         $scope.dateFrom = new Date();
     };
@@ -112,11 +133,9 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
     $scope.clear = function () {
         $scope.dt = null;
     };
-
     $scope.open = function($event) {
         $scope.opened = true;
     };
-
     $scope.dateOptions = {
         formatYear: 'yy',
         startingDay: 1
@@ -126,13 +145,11 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
     tomorrow.setDate(tomorrow.getDate() + 1);
     var afterTomorrow = new Date();
     afterTomorrow.setDate(tomorrow.getDate() + 2);
-    $scope.events =
-        [
-            {
+
+    $scope.events = [{
                 date: tomorrow,
                 status: 'full'
-            },
-            {
+            }, {
                 date: afterTomorrow,
                 status: 'partially'
             }
