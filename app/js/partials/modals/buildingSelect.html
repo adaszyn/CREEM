@@ -2,8 +2,10 @@
 <div id="scrollable-area">
     <form>
     <table id="building-table" ng-table="tableParams" class="table fixed_headers" show-filter="true">
-        <tr ng-repeat="building in buildings">
-            <td><input type="radio" ng-model="selectedBuilding.temp" ng-value="building" name="building-radio"></td>
+        <tr ng-repeat="building in availableBuildings">
+            <td><input type="checkbox"
+                    ng-checked="selectedBuildings.indexOf(building) > -1"
+                    ng-click="changeSelection(building)"></td>
             <td data-title="'Codice'" filter="{'codice': 'text'}" sortable="'codice'">{{building.codice}}</td>
             <td data-title="'Indirizzo'" filter="{'indirizzo': 'text'}" sortable="'indirizzo'">{{building.indirizzo}}</td>
             <td data-title="'Comune'" filter="{'nome': 'text'}" sortable="'nome'">{{building.nome}}</td>
@@ -12,8 +14,8 @@
             <td data-title="'sitoCreem'" filter="{'sitoCreem': 'text'}" sortable="'sitoCreem'">{{building.sitoCreem}}</td>
         </tr>
     </table>
-    <button class="btn btn-default" ng-click="cancelSelect(selectedBuilding)">Cancel</button>
-    <button ng-class="selectedBuilding.temp ? 'btn btn-success' : 'btn disabled'" ng-click="submitSelect(selectedBuilding)">Submit</button>
+    <button class="btn btn-default" ng-click="cancelBuildingSelect()">Cancel</button>
+    <button ng-class="selectedBuilding.temp ? 'btn btn-success' : 'btn disabled'" ng-click="submitBuildingSelect()">Submit</button>
     </form>
 </div>
 

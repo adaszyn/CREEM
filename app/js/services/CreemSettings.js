@@ -1,8 +1,7 @@
 CREEMapp.factory("CreemSettings", ['$rootScope', function ($rootScope) {
     var settingsModel = {
       buildings: {
-          displayed: 0,
-          selected: []
+          displayed: 0
       },
       provinces: {
           displayed: 0,
