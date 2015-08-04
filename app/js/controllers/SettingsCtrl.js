@@ -92,7 +92,7 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
      * @memberOf CREEMapp.SettingsCtrl
      * @description Loading buildingSelect.html for selection of buildings
      */
-    $scope.showBuildings = function () {
+    $scope.selectBuildings = function () {
         ngDialog.open({
             template: 'js/partials/modals/buildingSelect.html',
             className: 'ngdialog-theme-default'
