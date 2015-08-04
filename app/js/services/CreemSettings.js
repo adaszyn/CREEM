@@ -5,11 +5,22 @@ CREEMapp.factory("CreemSettings", ['$rootScope', function ($rootScope) {
       },
       provinces: {
           displayed: 0,
-          selected: []
+          available: [
+              {name:'AG', checked:false}, {name:'CL', checked:false},
+              {name:'CT', checked:false}, {name:'EN', checked:false},
+              {name:'ME', checked:false}, {name:'PA', checked:false},
+              {name:'RG', checked:false}, {name:'SR', checked:false},
+              {name:'TP', checked:false}
+          ]
       },
       clusters: {
           displayed: 0,
-          selected: []
+          available: [
+              {name:'LAYOUT', checked:false}, {name:'TRADIZIONALE', checked:false},
+              {name:'ITALPOSTE', checked:false}, {name:'IND', checked:false},
+              {name:'DIR', checked:false}, {name:'CMP', checked:false},
+              {name:'ALTRO', checked:false}, {name:'DIRUP', checked:false}
+          ]
       },
       buildingsConsumption: {
           displayed: 0,

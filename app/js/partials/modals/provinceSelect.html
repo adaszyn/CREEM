@@ -1,0 +1,10 @@
+
+<div id="scrollable-area">
+    <form>
+        Provinces
+        <select ng-options="province for province in provinces" ng-model="selectedProvince.temp"></select>
+        <button class="btn btn-default" ng-click="cancelSelect(selectedProvince)">Cancel</button>
+        <button ng-class="selectedProvince.temp ? 'btn btn-success' : 'btn disabled'" ng-click="submitSelect(selectedProvince)">Submit</button>
+    </form>
+</div>
+

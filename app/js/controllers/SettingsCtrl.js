@@ -10,6 +10,7 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
         buildings: CreemSettings.getBuildings(),
     };
     $scope.$on('settingsUpdate', function() {
+        $scope.buildings = CreemSettings.getBuildings();
         $scope.provinces = CreemSettings.getProvinces();
         $scope.clusters = CreemSettings.getClusters();
         $scope.dateRange= CreemSettings.getDateRange();
@@ -59,6 +60,38 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
 
         }
     });
+    /**
+     * @function
+     * @name checkElement
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Changes the selection of element
+     * @param element
+     */
+    $scope.checkElement = function (element) {
+        if (element.checked) {
+            element.checked = false;
+        }
+        else {
+            element.checked = true;
+        }
+    };
+    /**
+     * @function
+     * @name isChecked
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description return true if element is checked
+     * @param selected
+     * @returns bool
+     */
+    $scope.isChecked = function (selected) {
+        return selected.checked;
+    }
+    /**
+     * @function
+     * @name showBuildings
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Loading buildingSelect.html for selection of buildings
+     */
     $scope.selectBuildings = function () {
         ngDialog.open({
             template: 'js/partials/modals/buildingSelect.html',
@@ -70,5 +103,79 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
         if (idx >= 0) {
             $scope.selectedBuildings.splice(idx, 1);
         }
+    };
+
+    //==========================================================================================
+
+    /**
+     * @function
+     * @name showClusters
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Loading clusterSelect.html for selection of clusters
+     */
+    $scope.showClusters = function () {
+        ngDialog.open({
+            template: 'js/partials/modals/clusterSelect.html',
+            className: 'ngdialog-theme-default'
+        });
+    };
+
+    //==========================================================================================
+
+    /**
+     * @function
+     * @name showProvinces
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Loading provinceSelect.html for selection of provinces
+     */
+    $scope.showProvinces = function () {
+        ngDialog.open({
+            template: 'js/partials/modals/provinceSelect.html',
+            className: 'ngdialog-theme-default'
+        });
     }
+
+    //==========================================================================================
+
+    /**
+     * @function
+     * @name showDates
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Loading dataSelect.html for selection of provinces
+     */
+    $scope.showDates = function () {
+        ngDialog.open({
+            template: 'js/partials/modals/dataSelect.html',
+            className: 'ngdialog-theme-default'
+        });
+    }
+
+    $scope.today = function() {
+        $scope.dateFrom = new Date();
+    };
+    $scope.today();
+
+    $scope.clear = function () {
+        $scope.dt = null;
+    };
+    $scope.open = function($event) {
+        $scope.opened = true;
+    };
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    };
+
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date();
+    afterTomorrow.setDate(tomorrow.getDate() + 2);
+
+    $scope.events = [{
+        date: tomorrow,
+        status: 'full'
+    }, {
+        date: afterTomorrow,
+        status: 'partially'
+    }];
 }]);

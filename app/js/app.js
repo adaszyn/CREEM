@@ -4,7 +4,7 @@
  * @module
  * CREEMapp
  */
-var CREEMapp = angular.module('CREEMapp', ['ui.router', 'ngDialog', 'ngTable']);
+var CREEMapp = angular.module('CREEMapp', ['ui.router', 'ngDialog', 'ngTable', 'ui.bootstrap']);
 /**
  * @constant
  *
