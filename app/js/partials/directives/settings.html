@@ -29,7 +29,7 @@
         height: 1.1em;
     }
     .settings ul li:hover {
-        background: #555;
+        opacity: 0.9;
         color: #fff;
     }
     .settings ul li ul {
@@ -54,21 +54,25 @@
         opacity: 1;
         visibility: visible;
     }
+    .settings .active-option {
+        background-color: darkred;
+    }
 
 </style>
 <div class="settings">
     <ul><li ng-if="buildings.displayed > 0">
-        <span>Buildings </span><img ng-click="selectBuildings()" src="images/add112.png">
+        <span>Buildings </span><img ng-click="showBuildings()" src="images/add112.png">
     </li>
         <li ng-if="clusters.displayed > 0">
             Clusters
+            <ul>
+                <li ng-class="isChecked(cluster) === true ? 'active-option' : ''" ng-click="checkElement(cluster)" ng-repeat="cluster in clusters.available">{{ cluster.name }}</li>
+            </ul>
         </li>
         <li ng-if="provinces.displayed > 0">
             Provinces
             <ul>
-                <li>ein</li>
-                <li>zwei</li>
-                <li>drei</li>
+                <li ng-class="isChecked(province) === true ? 'active-option' : ''" ng-click="checkElement(province)" ng-repeat="province in provinces.available">{{ province.name }}</li>
             </ul>
         </li>
         <li ng-if="buildingsConsumption.displayed > 0">
