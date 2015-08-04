@@ -75,17 +75,35 @@
 
 </style>
 <div class="settings">
-    <ul><li ng-if="config.buildings.displayed > 0">
+    <ul>
+        <li ng-if="config.buildings.displayed > 0">
         <img src="images/icon_building_white.png">
-        <span>Buildings</span><div class="buildings-counter-wraper">
-            <div class="buildings-counter">{{selectedBuildings.length}}</div>
-    </div>
-        <ul>
-            <li ng-repeat="building in selectedBuildings">{{building.codice}}
-                <img align="right" ng-click="removeBuilding(building)" src="images/delete30.png"></li>
-            <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
-        </ul>
-    </li>
+        <span>Buildings</span>
+            <div class="buildings-counter-wraper">
+                <div class="buildings-counter">{{selectedBuildings.length}}</div>
+            </div>
+            <ul>
+                <li ng-repeat="building in selectedBuildings">{{building.codice}}
+                    <img align="right" ng-click="removeBuilding(building)" src="images/delete30.png"></li>
+                <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
+            </ul>
+        </li>
+
+
+        <li ng-if="config.buildingsConsumption.displayed > 0">
+            <img src="images/icon_building_white.png">
+            <span>Building Consumption</span>
+            <div class="buildings-counter-wraper">
+                <div class="buildings-counter">{{selectedBuildings.length}}</div>
+            </div>
+            <ul>
+                <li ng-repeat="building in selectedBuildings">{{building.codice}}
+                    <img align="right" ng-click="removeBuilding(building)" src="images/delete30.png"></li>
+                <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
+            </ul>
+        </li>
+
+
         <li ng-if="clusters.displayed > 0">
             Clusters
             <ul>

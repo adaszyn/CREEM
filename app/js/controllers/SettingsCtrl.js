@@ -105,38 +105,6 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
         }
     };
 
-    //==========================================================================================
-
-    /**
-     * @function
-     * @name showClusters
-     * @memberOf CREEMapp.SettingsCtrl
-     * @description Loading clusterSelect.html for selection of clusters
-     */
-    $scope.showClusters = function () {
-        ngDialog.open({
-            template: 'js/partials/modals/clusterSelect.html',
-            className: 'ngdialog-theme-default'
-        });
-    };
-
-    //==========================================================================================
-
-    /**
-     * @function
-     * @name showProvinces
-     * @memberOf CREEMapp.SettingsCtrl
-     * @description Loading provinceSelect.html for selection of provinces
-     */
-    $scope.showProvinces = function () {
-        ngDialog.open({
-            template: 'js/partials/modals/provinceSelect.html',
-            className: 'ngdialog-theme-default'
-        });
-    }
-
-    //==========================================================================================
-
     /**
      * @function
      * @name showDates
