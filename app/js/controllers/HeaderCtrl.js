@@ -1,4 +1,10 @@
-CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http', 'ngTableParams', '$filter','CreemSettings', function($scope, ngDialog, RESTaddress, $http, ngTableParams, $filter, CreemSettings){
+/**
+ * @function
+ * @name HeaderCtrl
+ * @class CREEMapp.HeaderCtrl
+ * @requires scope, ngDialog, RESTaddress, $http, ngTableParams, $filter
+ */
+CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http', 'ngTableParams', '$filter', function($scope, ngDialog, RESTaddress, $http, ngTableParams, $filter){
     var buildings = [],
         isCached = false;
     $scope.selectedBuilding = {
@@ -36,6 +42,12 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
 
         }
     });
+    /**
+     * @function
+     * @name cancelBuildingSelect
+     * @memberOf CREEMapp.HeaderCtrl
+     * @description Cancels building selection and closes dialog.
+     */
     $scope.cancelBuildingSelect= function () {
         $scope.selectedBuilding.temp = undefined;
         ngDialog.closeAll();
@@ -50,4 +62,5 @@ CREEMapp.controller("HeaderCtrl", ['$scope', 'ngDialog', 'RESTaddress', '$http',
             className: 'ngdialog-theme-default'
         });
     };
+
 }]);
