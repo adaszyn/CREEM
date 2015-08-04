@@ -54,11 +54,34 @@
         opacity: 1;
         visibility: visible;
     }
+    .buildings-counter-wraper {
+        display: inline-block;
+        vertical-align: bottom;
+    }
+    .buildings-counter {
+        width: 18px;
+        height: 18px;
+        border-radius: 90px;
+        background-color: #fff;
+        color: black;
+        text-align: center;
+        display: table-cell;
+        overflow: hidden;
+        vertical-align:middle;
+    }
 
 </style>
 <div class="settings">
-    <ul><li ng-if="buildings.displayed > 0">
-        <span>Buildings </span><img ng-click="selectBuildings()" src="images/add112.png">
+    <ul><li ng-if="config.buildings.displayed > 0">
+        <img src="images/icon_building_white.png">
+        <span>Buildings</span><div class="buildings-counter-wraper">
+            <div class="buildings-counter">{{selectedBuildings.length}}</div>
+    </div>
+        <ul>
+            <li ng-repeat="building in selectedBuildings">{{building.codice}}
+                <img align="right" ng-click="removeBuilding(building)" src="images/delete30.png"></li>
+            <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
+        </ul>
     </li>
         <li ng-if="clusters.displayed > 0">
             Clusters
