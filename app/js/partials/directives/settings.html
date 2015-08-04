@@ -1,26 +1,79 @@
 <style>
     .settings {
-        width: 100%;
-        float: left;
-        font-size: 1.2em;
-        text-align: center;
-        color: white;
         display: flex;
+        border-left: 1px solid rgb(156, 156, 156);
+        border-right: 1px solid rgb(156, 156, 156);
+        border-bottom: 2px solid rgb(156, 156, 156);
     }
-    .settings div:nth-child(1) { background-color: #2e6da4; }
-    .settings div:nth-child(2) { background-color: darkred; }
-    .settings div:nth-child(3) { background-color: darkgoldenrod; }
-    .settings div:nth-child(4) { background-color: darkgreen; }
-    .settings div:nth-child(5) { background-color: darkmagenta; }
-    .settings > div{
+    .settings ul {
+        text-align: left;
+        display: flex;
+        margin: 0;
+        list-style: none;
+        width: 100%;
+    }
+    .settings ul li {
+        padding: 10px;
+        text-align: center;
         flex-grow: 1;
+        float: left;
+        font: bold 12px/18px sans-serif;
+        font-size: 1.1em;
+        display: inline-block;
+        position: relative;
+        background: #000;
+        color: white;
+        cursor: pointer;
+    }
+    .settings ul li img {
+        height: 1.1em;
+    }
+    .settings ul li:hover {
+        background: #555;
+        color: #fff;
+    }
+    .settings ul li ul {
+        z-index: 100;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .settings ul li ul li {
+        background: #555;
+        display: block;
+        color: #fff;
+        width: 100%;
+        text-shadow: 0 -1px 0 #000;
+    }
+    .settings ul li:hover ul {
+        display: block;
+        opacity: 1;
+        visibility: visible;
     }
 
 </style>
 <div class="settings">
-    <div ng-if="buildings.quantity">{{buildings.quantity}}</div>
-    <div ng-if="clusters.quantity">{{clusters.quantity}}</div>
-    <div ng-if="provinces.quantity">{{provinces.quantity}}</div>
-    <div ng-if="buildingsConsumption.quantity">{{buildingsConsumption.quantity}}</div>
-    <div ng-if="dateRange.visible">{{dateRange}}</div>
+    <ul><li ng-if="buildings.displayed > 0">
+        <span>Buildings </span><img src="images/add112.png">
+    </li>
+        <li ng-if="clusters.displayed > 0">
+            Clusters
+        </li>
+        <li ng-if="provinces.displayed > 0">
+            Provinces
+            <ul>
+                <li>ein</li>
+                <li>zwei</li>
+                <li>drei</li>
+            </ul>
+        </li>
+        <li ng-if="buildingsConsumption.displayed > 0">
+            BuildingsByConsumption
+        </li>
+        <li ng-if="buildingsConsumption.visible">Daterange</li>
+    </ul>
 </div>
