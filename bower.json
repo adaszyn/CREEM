@@ -17,6 +17,7 @@
     "ngDialog": "~0.4.0",
     "ng-table": "~0.8.0",
     "bootstrap-table": "~1.8.1",
-    "amcharts-angular": "*"
+    "amcharts-angular": "*",
+    "angular-bootstrap": "~0.13.2"
   }
 }
