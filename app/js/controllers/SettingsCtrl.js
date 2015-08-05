@@ -33,7 +33,14 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
      * @description Contains parameters for ngTableDirective
      */
     $scope.selectedBuildings = [];
-
+    $scope.selectedBuildingConsumptions = [];
+    /**
+     * @function
+     * @name changeSelection
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Selecting/Unselecting a building
+     * @param building
+     */
     $scope.changeSelection = function (building) {
         var idx = $scope.selectedBuildings.indexOf(building);
         if (idx > -1) {
@@ -41,6 +48,22 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
         }
         else {
             $scope.selectedBuildings.push(building);
+        }
+    };
+    /**
+     * @function
+     * @name changeBuildingConsumptions
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Selecting/Unselecting a building consumption
+     * @param building
+     */
+    $scope.changeBuildingConsumptions = function (building) {
+        var idx = $scope.selectedBuildingConsumptions.indexOf(building);
+        if (idx > -1) {
+            $scope.selectedBuildingConsumptions.splice(idx, 1);
+        }
+        else {
+            $scope.selectedBuildingConsumptions.push(building);
         }
     };
 
@@ -88,7 +111,7 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
     }
     /**
      * @function
-     * @name showBuildings
+     * @name selectBuildings
      * @memberOf CREEMapp.SettingsCtrl
      * @description Loading buildingSelect.html for selection of buildings
      */
@@ -98,10 +121,40 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
             className: 'ngdialog-theme-default'
         });
     };
+    /**
+     * @function
+     * @name removeBuilding
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Removing building from the selectedBuildings
+     */
     $scope.removeBuilding = function (building) {
         var idx = $scope.selectedBuildings.indexOf(building);
         if (idx >= 0) {
             $scope.selectedBuildings.splice(idx, 1);
+        }
+    };
+    /**
+     * @function
+     * @name selectBuildingConsumptions
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Loading buildingConsumptionSelect.html for selection of building consumptions
+     */
+    $scope.selectBuildingConsumptions = function () {
+        ngDialog.open({
+            template: 'js/partials/modals/buildingConsumptionSelect.html',
+            className: 'ngdialog-theme-default'
+        });
+    };
+    /**
+     * @function
+     * @name removeBuildingConsumptions
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Removing building from the selectedBuildingConsumptions
+     */
+    $scope.removeBuildingConsumptions = function (building) {
+        var idx = $scope.selectedBuildingConsumptions.indexOf(building);
+        if (idx >= 0) {
+            $scope.selectedBuildingConsumptions.splice(idx, 1);
         }
     };
 

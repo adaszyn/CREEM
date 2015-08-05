@@ -90,16 +90,16 @@
         </li>
 
 
-        <li ng-if="config.buildingsConsumption.displayed > 0">
+        <li ng-if="buildingsConsumption.displayed > 0">
             <img src="images/icon_building_white.png">
             <span>Building Consumption</span>
             <div class="buildings-counter-wraper">
-                <div class="buildings-counter">{{selectedBuildings.length}}</div>
+                <div class="buildings-counter">{{selectedBuildingConsumptions.length}}</div>
             </div>
             <ul>
-                <li ng-repeat="building in selectedBuildings">{{building.codice}}
-                    <img align="right" ng-click="removeBuilding(building)" src="images/delete30.png"></li>
-                <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
+                <li ng-repeat="building in selectedBuildingConsumptions">{{building.codice}}
+                    <img align="right" ng-click="removeBuildingConsumptions(building)" src="images/delete30.png"></li>
+                <li ng-click="selectBuildingConsumptions()">Add building <img src="images/add112.png"></li>
             </ul>
         </li>
 
@@ -115,9 +115,6 @@
             <ul>
                 <li ng-class="isChecked(province) === true ? 'active-option' : ''" ng-click="checkElement(province)" ng-repeat="province in provinces.available">{{ province.name }}</li>
             </ul>
-        </li>
-        <li ng-if="buildingsConsumption.displayed > 0">
-            BuildingsByConsumption
         </li>
         <li ng-if="buildingsConsumption.visible">Daterange</li>
     </ul>

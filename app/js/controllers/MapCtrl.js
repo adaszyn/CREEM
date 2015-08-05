@@ -8,6 +8,7 @@ CREEMapp.controller("MapCtrl", ['$scope','CreemSettings', function ($scope, Cree
     CreemSettings.setSettingsMenu({
         buildings: 5,
         provinces: 120,
-        clusters: 20
+        clusters: 20,
+        buildingsConsumption: 5
     });
 }]);
