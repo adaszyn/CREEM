@@ -9,6 +9,6 @@ CREEMapp.controller("MapCtrl", ['$scope','CreemSettings', function ($scope, Cree
         buildings: 5,
         provinces: 120,
         clusters: 20,
-        buildingsConsumption: 5
+        dateRange: true
     });
 }]);
