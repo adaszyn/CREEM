@@ -76,44 +76,53 @@
 </style>
 <div class="settings">
     <ul>
-        <li ng-if="config.buildings.displayed > 0">
+        <li ng-if="buildings.displayed > 0">
         <img src="images/icon_building_white.png">
         <span>Buildings</span>
             <div class="buildings-counter-wraper">
-                <div class="buildings-counter">{{selectedBuildings.length}}</div>
+                <div class="buildings-counter">{{buildings.selected.length}}</div>
             </div>
             <ul>
-                <li ng-repeat="building in selectedBuildings">{{building.codice}}
+                <li ng-repeat="building in buildings.selected">{{building.codice}}
                     <img align="right" ng-click="removeBuilding(building)" src="images/delete30.png"></li>
                 <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
             </ul>
         </li>
 
+<!--TO BE REMOVED FROM APPLICATION-->
 
-        <li ng-if="buildingsConsumption.displayed > 0">
-            <img src="images/icon_building_white.png">
-            <span>Building Consumption</span>
-            <div class="buildings-counter-wraper">
-                <div class="buildings-counter">{{selectedBuildingConsumptions.length}}</div>
-            </div>
-            <ul>
-                <li ng-repeat="building in selectedBuildingConsumptions">{{building.codice}}
-                    <img align="right" ng-click="removeBuildingConsumptions(building)" src="images/delete30.png"></li>
-                <li ng-click="selectBuildingConsumptions()">Add building <img src="images/add112.png"></li>
-            </ul>
-        </li>
+        <!--<li ng-if="buildingsConsumption.displayed > 0">-->
+            <!--<img src="images/icon_building_white.png">-->
+            <!--<span>Building Consumption</span>-->
+            <!--<div class="buildings-counter-wraper">-->
+                <!--<div class="buildings-counter">{{buildingsConsumption.selected.length}}</div>-->
+            <!--</div>-->
+            <!--<ul>-->
+                <!--<li ng-repeat="building in buildingsConsumption.selected">{{building.codice}}-->
+                    <!--<img align="right" ng-click="removeBuildingConsumption(building)" src="images/delete30.png"></li>-->
+                <!--<li ng-click="selectBuildingConsumptions()">Add building <img src="images/add112.png"></li>-->
+            <!--</ul>-->
+        <!--</li>-->
 
 
         <li ng-if="clusters.displayed > 0">
             Clusters
             <ul>
-                <li ng-class="isChecked(cluster) === true ? 'active-option' : ''" ng-click="checkElement(cluster)" ng-repeat="cluster in clusters.available">{{ cluster.name }}</li>
+                <li ng-repeat="cluster in clusters.available"
+                    ng-class="cluster.checked ? 'active-option' : ''"
+                    ng-click="cluster.checked = !cluster.checked"
+                    ng-bind="cluster.name">
+                </li>
             </ul>
         </li>
         <li ng-if="provinces.displayed > 0">
             Provinces
             <ul>
-                <li ng-class="isChecked(province) === true ? 'active-option' : ''" ng-click="checkElement(province)" ng-repeat="province in provinces.available">{{ province.name }}</li>
+                <li ng-repeat="province in provinces.available"
+                    ng-class="province.checked ? 'active-option' : ''"
+                    ng-click="province.checked = !province.checked"
+                    ng-bind="province.name">
+                </li>
             </ul>
         </li>
         <li ng-if="buildingsConsumption.visible">Daterange</li>
