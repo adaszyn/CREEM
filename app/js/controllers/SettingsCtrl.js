@@ -9,7 +9,7 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
     $scope.provinces = CreemSettings.provinces;
     $scope.clusters = CreemSettings.clusters;
     $scope.buildingsConsumption = CreemSettings.buildingsConsumption;
-    $scope.daterange = CreemSettings.daterange;
+    $scope.dateRange = CreemSettings.dateRange;
 
     $http.get(RESTaddress + "immobili/", { cached: true })
         .then(function (response) {
@@ -125,39 +125,24 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
      * @memberOf CREEMapp.SettingsCtrl
      * @description Loading dataSelect.html for selection of provinces
      */
-    $scope.showDates = function () {
+    $scope.showDateRangeModal = function () {
         ngDialog.open({
-            template: 'js/partials/modals/dataSelect.html',
-            className: 'ngdialog-theme-default'
+            template: 'js/partials/modals/dateSelect.html',
+            className: 'ngdialog-theme-creem'
         });
     };
 
-    $scope.today = function() {
-        $scope.dateFrom = new Date();
-    };
-    $scope.today();
+    $scope.dateRangeConfig = {
+        fromOpened: false,
+        toOpened: false,
+        dateOptions: {
+            formatYear: 'yy',
+            startingDay: 1
+        },
+        alerts: [
 
-    $scope.clear = function () {
-        $scope.dt = null;
+        ]
     };
-    $scope.open = function($event) {
-        $scope.opened = true;
-    };
-    $scope.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1
-    };
+    $scope.mindate = new Date();
 
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    var afterTomorrow = new Date();
-    afterTomorrow.setDate(tomorrow.getDate() + 2);
-
-    $scope.events = [{
-        date: tomorrow,
-        status: 'full'
-    }, {
-        date: afterTomorrow,
-        status: 'partially'
-    }];
 }]);

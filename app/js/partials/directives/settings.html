@@ -21,7 +21,7 @@
         font-size: 1.1em;
         display: inline-block;
         position: relative;
-        background: #000;
+        background: #486401;
         color: white;
         cursor: pointer;
     }
@@ -31,6 +31,7 @@
     .settings ul li:hover {
         opacity: 0.9;
         color: #fff;
+        background: #689102;
     }
     .settings ul li ul {
         z-index: 100;
@@ -44,12 +45,15 @@
     }
     .settings ul li ul li {
         background: #555;
+        font-weight: normal;
+        font-size: 0.9em;
         display: block;
         color: #fff;
         width: 100%;
         text-shadow: 0 -1px 0 #000;
     }
     .settings ul li:hover ul {
+        margin-top: 10px;
         display: block;
         opacity: 1;
         visibility: visible;
@@ -57,6 +61,7 @@
     .buildings-counter-wraper {
         display: inline-block;
         vertical-align: bottom;
+        font-weight: normal;
     }
     .buildings-counter {
         width: 18px;
@@ -70,7 +75,8 @@
         vertical-align:middle;
     }
     .settings .active-option {
-        background-color: darkred;
+        background-color: #486401;
+        font-weight: bold;
     }
 
 </style>
@@ -79,7 +85,7 @@
         <li ng-if="buildings.displayed > 0">
         <img src="images/icon_building_white.png">
         <span>Buildings</span>
-            <div class="buildings-counter-wraper">
+            <div class="buildings-counter-wraper" ng-if="buildings.selected.length > 0">
                 <div class="buildings-counter">{{buildings.selected.length}}</div>
             </div>
             <ul>
@@ -106,6 +112,7 @@
 
 
         <li ng-if="clusters.displayed > 0">
+            <img src="images/cluster.png">
             Clusters
             <ul>
                 <li ng-repeat="cluster in clusters.available"
@@ -116,6 +123,7 @@
             </ul>
         </li>
         <li ng-if="provinces.displayed > 0">
+            <img src="images/location_icon.png">
             Provinces
             <ul>
                 <li ng-repeat="province in provinces.available"
@@ -125,6 +133,15 @@
                 </li>
             </ul>
         </li>
-        <li ng-if="buildingsConsumption.visible">Daterange</li>
+        <li ng-if="dateRange.visible">
+            <img src="images/calendar_white.png">
+            Daterange
+            <ul>
+                <li>last week</li>
+                <li>last month</li>
+                <li>last year</li>
+                <li ng-click="showDateRangeModal()">custom</li>
+            </ul>
+        </li>
     </ul>
 </div>
