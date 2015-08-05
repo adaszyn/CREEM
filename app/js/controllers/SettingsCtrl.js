@@ -5,17 +5,11 @@
  * @requires $scope, CreemSettings, ngDialog, ngTableParams
  */
 CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDialog', 'ngTableParams', 'RESTaddress', '$filter', function ($scope, $http, CreemSettings, ngDialog, ngTableParams, RESTaddress, $filter) {
-    var allBuildings = [];
-    $scope.config = {
-        buildings: CreemSettings.getBuildings(),
-    };
-    $scope.$on('settingsUpdate', function() {
-        $scope.buildings = CreemSettings.getBuildings();
-        $scope.provinces = CreemSettings.getProvinces();
-        $scope.clusters = CreemSettings.getClusters();
-        $scope.dateRange= CreemSettings.getDateRange();
-        $scope.buildingsConsumption = CreemSettings.getBuildingsConsumption();
-    });
+    $scope.buildings = CreemSettings.buildings;
+    $scope.provinces = CreemSettings.provinces;
+    $scope.clusters = CreemSettings.clusters;
+    $scope.buildingsConsumption = CreemSettings.buildingsConsumption;
+    $scope.daterange = CreemSettings.daterange;
 
     $http.get(RESTaddress + "immobili/", { cached: true })
         .then(function (response) {
@@ -23,17 +17,10 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
                 return;
             }
             else {
-                allBuildings = response.data;
+                $scope.buildings.available = response.data;
             }
         });
-    /**
-     * @field
-     * @name tableParams
-     * @memberOf CREEMapp.SettingsCtrl
-     * @description Contains parameters for ngTableDirective
-     */
-    $scope.selectedBuildings = [];
-    $scope.selectedBuildingConsumptions = [];
+
     /**
      * @function
      * @name changeSelection
@@ -41,13 +28,13 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
      * @description Selecting/Unselecting a building
      * @param building
      */
-    $scope.changeSelection = function (building) {
-        var idx = $scope.selectedBuildings.indexOf(building);
+    $scope.changeBuildingsSelection = function (building) {
+        var idx = $scope.buildings.selected.indexOf(building);
         if (idx > -1) {
-            $scope.selectedBuildings.splice(idx, 1);
+            $scope.buildings.selected.splice(idx, 1);
         }
         else {
-            $scope.selectedBuildings.push(building);
+            $scope.buildings.selected.push(building);
         }
     };
     /**
@@ -57,13 +44,13 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
      * @description Selecting/Unselecting a building consumption
      * @param building
      */
-    $scope.changeBuildingConsumptions = function (building) {
-        var idx = $scope.selectedBuildingConsumptions.indexOf(building);
+    $scope.changeBuildingConsumptionSelection = function (building) {
+        var idx = $scope.buildingsConsumption.selected.indexOf(building);
         if (idx > -1) {
-            $scope.selectedBuildingConsumptions.splice(idx, 1);
+            $scope.buildingsConsumption.selected.splice(idx, 1);
         }
         else {
-            $scope.selectedBuildingConsumptions.push(building);
+            $scope.buildingsConsumption.selected.push(building);
         }
     };
 
@@ -75,40 +62,14 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
     }, {
         total: 10,
         getData: function($defer, params) {
-            var orderedData = params.filter() ? $filter('filter')(allBuildings, params.filter()) : allBuildings;
+            var orderedData = params.filter() ? $filter('filter')($scope.buildings.available, params.filter()) : $scope.buildings.available;
             orderedData = params.sorting() ? $filter('orderBy')(orderedData, params.orderBy()) : orderedData;
-            $scope.availableBuildings = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+            $scope.listedBuildings = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
             params.total(orderedData.length);
-            $defer.resolve($scope.availableBuildings);
+            $defer.resolve($scope.listedBuildings);
 
         }
     });
-    /**
-     * @function
-     * @name checkElement
-     * @memberOf CREEMapp.SettingsCtrl
-     * @description Changes the selection of element
-     * @param element
-     */
-    $scope.checkElement = function (element) {
-        if (element.checked) {
-            element.checked = false;
-        }
-        else {
-            element.checked = true;
-        }
-    };
-    /**
-     * @function
-     * @name isChecked
-     * @memberOf CREEMapp.SettingsCtrl
-     * @description return true if element is checked
-     * @param selected
-     * @returns bool
-     */
-    $scope.isChecked = function (selected) {
-        return selected.checked;
-    }
     /**
      * @function
      * @name selectBuildings
@@ -128,9 +89,9 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
      * @description Removing building from the selectedBuildings
      */
     $scope.removeBuilding = function (building) {
-        var idx = $scope.selectedBuildings.indexOf(building);
+        var idx = $scope.buildings.selected.indexOf(building);
         if (idx >= 0) {
-            $scope.selectedBuildings.splice(idx, 1);
+            $scope.buildings.selected.splice(idx, 1);
         }
     };
     /**
@@ -151,7 +112,7 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
      * @memberOf CREEMapp.SettingsCtrl
      * @description Removing building from the selectedBuildingConsumptions
      */
-    $scope.removeBuildingConsumptions = function (building) {
+    $scope.removeBuildingConsumption = function (building) {
         var idx = $scope.selectedBuildingConsumptions.indexOf(building);
         if (idx >= 0) {
             $scope.selectedBuildingConsumptions.splice(idx, 1);
@@ -169,7 +130,7 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
             template: 'js/partials/modals/dataSelect.html',
             className: 'ngdialog-theme-default'
         });
-    }
+    };
 
     $scope.today = function() {
         $scope.dateFrom = new Date();
