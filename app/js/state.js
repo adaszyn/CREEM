@@ -80,7 +80,8 @@ CREEMapp.config(function($stateProvider, $urlRouterProvider) {
             })
             .state('consumptionAnalysis.historicalConsumption', {
                 url: "/historical_consumption",
-                templateUrl: "js/partials/views/consumptionAnalysis/historicalConsumption.html"
+                templateUrl: "js/partials/views/consumptionAnalysis/historicalConsumption.html",
+                controller: 'HistoricalConsumptionCtrl'
             })
         .state('diagnosis', {
             url: "/diagnosis",
