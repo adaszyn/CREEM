@@ -12,6 +12,12 @@ CREEMapp.controller("HistoricalConsumptionCtrl", ['$scope','CreemSettings', '$ht
     var chart;
     $scope.buildings = CreemSettings.buildings.selected;
 
+    /**
+     * @function
+     * @name createChart
+     * @memberOf CREEMapp.HistoricalConsumptionCtrl
+     * @description Creating stock chart with data we got in json
+     */
     $scope.createChart = function() {
         chart = AmCharts.makeChart("chartdiv", {
             type: "stock",
@@ -135,6 +141,13 @@ CREEMapp.controller("HistoricalConsumptionCtrl", ['$scope','CreemSettings', '$ht
         chart.validateNow();
     }
 
+    /**
+     * @function
+     * @name updateData
+     * @memberOf CREEMapp.HistoricalConsumptionCtrl
+     * @description Formatting to accessable by chart form the data got in json from server (historical consumption)
+     * @params response
+     */
     $scope.updateData = function (response) {
         var tot = 0;
         var chartData = [];
@@ -160,7 +173,12 @@ CREEMapp.controller("HistoricalConsumptionCtrl", ['$scope','CreemSettings', '$ht
         }
         return chartData;
     };
-
+    /**
+     * @function
+     * @name getChartData
+     * @memberOf CREEMapp.HistoricalConsumptionCtrl
+     * @description Asking the server about data and waiting for response, after that creating graph
+     */
     $scope.getChartData = function () {
         if ($scope.buildings[0] === undefined) return;
         $scope.chartData = [];
@@ -176,7 +194,12 @@ CREEMapp.controller("HistoricalConsumptionCtrl", ['$scope','CreemSettings', '$ht
                 })
         }
     };
-
+    /**
+     * @function
+     * @name submit
+     * @memberOf CREEMapp.HistoricalConsumptionCtrl
+     * @description Uploading data and chart after changing arguments (buildings etc.) when clicked on submit button
+     */
     $scope.submit = function() {
         $scope.getChartData();
     }
