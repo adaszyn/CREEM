@@ -13,10 +13,7 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
 
     $http.get(RESTaddress + "immobili/", { cached: true })
         .then(function (response) {
-            if (response.status !== 200) {
-                return;
-            }
-            else {
+            if (response.status === 200) {
                 $scope.buildings.available = response.data;
             }
         });
@@ -54,12 +51,13 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
         }
     };
 
-    $scope.tableParams = new ngTableParams({
+    $scope.tableParams = new ngTableParams(
+        {
         page: 1,
         count: 10,
-        filter: {
-        }
-    }, {
+        filter: {}
+        },
+        {
         total: 10,
         getData: function($defer, params) {
             var orderedData = params.filter() ? $filter('filter')($scope.buildings.available, params.filter()) : $scope.buildings.available;
@@ -144,7 +142,19 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
         ]
     };
     $scope.mindate = new Date();
+
+    /**
+     * @function
+     * @name checkedPositions
+     * @params array {Array[Object]}
+     * @memberOf CREEMapp.SettingsCtrl
+     * @description Returns the number of elements from array param with checked field set to true.
+     * It is used for counters in settings panel.
+     */
     $scope.checkedPositions = function (array) {
+        if ( !array instanceof Array ) {
+            return 0;
+        }
         var arr = array.filter(function(obj){
             return obj.checked;
         });

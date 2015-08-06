@@ -44,7 +44,6 @@ CREEMapp.factory("CreemSettings", ['$rootScope', function ($rootScope) {
                 this.dateRange.to = conf.dateRange.to;
                 this.dateRange.visible = true;
             }
-            $rootScope.$broadcast('settingsUpdate');
         }
     };
     return settingsObject;
