@@ -3,6 +3,7 @@
         display: flex;
         border-left: 1px solid rgb(156, 156, 156);
         border-right: 1px solid rgb(156, 156, 156);
+        z-index: 90;
         border-bottom: 2px solid rgb(156, 156, 156);
     }
     .settings ul {
@@ -58,12 +59,12 @@
         opacity: 1;
         visibility: visible;
     }
-    .buildings-counter-wraper {
+    .counter-wraper {
         display: inline-block;
         vertical-align: bottom;
         font-weight: normal;
     }
-    .buildings-counter {
+    .counter {
         width: 18px;
         height: 18px;
         border-radius: 90px;
@@ -85,8 +86,8 @@
         <li ng-if="buildings.displayed > 0">
         <img src="images/icon_building_white.png">
         <span>Buildings</span>
-            <div class="buildings-counter-wraper" ng-if="buildings.selected.length > 0">
-                <div class="buildings-counter">{{buildings.selected.length}}</div>
+            <div class="counter-wraper" ng-if="buildings.selected.length > 0">
+                <div class="counter">{{buildings.selected.length}}</div>
             </div>
             <ul>
                 <li ng-repeat="building in buildings.selected">{{building.codice}}
@@ -114,6 +115,9 @@
         <li ng-if="clusters.displayed > 0">
             <img src="images/cluster.png">
             Clusters
+            <div class="counter-wraper" ng-if="checkedPositions(clusters.available) > 0">
+                <div class="counter">{{checkedPositions(clusters.available)}}</div>
+            </div>
             <ul>
                 <li ng-repeat="cluster in clusters.available"
                     ng-class="cluster.checked ? 'active-option' : ''"
@@ -122,9 +126,12 @@
                 </li>
             </ul>
         </li>
-        <li ng-if="provinces.displayed > 0">
+        <li>
             <img src="images/location_icon.png">
             Provinces
+            <div class="counter-wraper" ng-if="checkedPositions(provinces.available) > 0">
+                <div class="counter">{{checkedPositions(provinces.available)}}</div>
+            </div>
             <ul>
                 <li ng-repeat="province in provinces.available"
                     ng-class="province.checked ? 'active-option' : ''"

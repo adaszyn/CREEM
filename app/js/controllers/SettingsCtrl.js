@@ -144,5 +144,10 @@ CREEMapp.controller("SettingsCtrl", ['$scope', '$http', 'CreemSettings', 'ngDial
         ]
     };
     $scope.mindate = new Date();
-
+    $scope.checkedPositions = function (array) {
+        var arr = array.filter(function(obj){
+            return obj.checked;
+        });
+        return arr.length;
+    }
 }]);
