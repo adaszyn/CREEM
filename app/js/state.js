@@ -11,7 +11,8 @@ CREEMapp.config(function($stateProvider, $urlRouterProvider) {
         })
             .state('globalView.map', {
                 url: "/map",
-                templateUrl: "js/partials/views/globalView/map.html"
+                templateUrl: "js/partials/views/globalView/map.html",
+                controller: 'MapCtrl'
             })
             .state('globalView.properties', {
                 url: "/properties",
@@ -79,7 +80,8 @@ CREEMapp.config(function($stateProvider, $urlRouterProvider) {
             })
             .state('consumptionAnalysis.historicalConsumption', {
                 url: "/historical_consumption",
-                templateUrl: "js/partials/views/consumptionAnalysis/historicalConsumption.html"
+                templateUrl: "js/partials/views/consumptionAnalysis/historicalConsumption.html",
+                controller: 'HistoricalConsumptionCtrl'
             })
         .state('diagnosis', {
             url: "/diagnosis",

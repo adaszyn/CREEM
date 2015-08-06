@@ -1,0 +1,47 @@
+<style>
+
+</style>
+<div id="scrollable-area">
+    <form>
+        <div style="width: 50%; height: auto; margin: auto; float: left" class="col-md-6">
+            <p class="input-group">
+                <input style="height: 100%"
+                       type="date" class="form-control"
+                       datepicker-popup
+                       ng-model="dateRangeConfig.dateFrom"
+                       is-open="dateRangeConfig.fromOpened"
+                       max-date="dateRangeConfig.dateTo"
+                       datepicker-options="dateOptions"
+                       close-text="Close" />
+                  <span class="input-group-btn" style="border: 1px solid rgb(204, 204, 204); border-radius-bottomright: 5px; border-radius-topright: 5px;">
+                    <button style="padding-top: 0; padding-bottom: 0; height: 100%; border: 0;"
+                            type="button" class="btn btn-default"
+                            ng-click="dateRangeConfig.fromOpened = !dateRangeConfig.fromOpened">
+                        <i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+            </p>
+        </div>
+        <div style="width: 50%; height: auto; margin: auto; float: left" class="col-md-6">
+            <p class="input-group">
+                <input style="height: 100%"
+                       type="date"
+                       class="form-control"
+                       datepicker-popup
+                       min-date="dateRangeConfig.dateFrom"
+                       ng-model="dateRangeConfig.dateTo"
+                       is-open="dateRangeConfig.toOpened"
+                       datepicker-options="dateOptions"
+                       close-text="Close" />
+                  <span class="input-group-btn" style="border: 1px solid rgb(204, 204, 204); border-radius-bottomright: 5px; border-radius-topright: 5px;">
+                    <button style="padding-top: 0; padding-bottom: 0; height: 100%; border: 0;"
+                            type="button"
+                            class="btn btn-default"
+                            ng-click="dateRangeConfig.toOpened = !dateRangeConfig.toOpened">
+                        <i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+            </p>
+        </div>
+        <alert ng-repeat="alert in dateRangeConfig.alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </form>
+</div>
+

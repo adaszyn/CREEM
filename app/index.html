@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-default.min.css">
     <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.css">
     <link rel="stylesheet" href="bower_components/bootstrap-table/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="css/ng-dialog-creem.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -67,9 +69,18 @@
 <script src="bower_components/ngDialog/js/ngDialog.min.js"></script>
 <script src="bower_components/ng-table/dist/ng-table.min.js"></script>
 <!--<script src="bower_components/bootstrap-table/dist/bootstrap-table-all.min.js"></script>-->
+
+<!--
 <script src="bower_components/amcharts/dist/amcharts/amcharts.js"></script>
 <script src="bower_components/amcharts/dist/amcharts/serial.js"></script>
 <script src="bower_components/amcharts/dist/amcharts/xy.js"></script>
+-->
+<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+<script src="http://www.amcharts.com/lib/3/amstock.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
 <!--CONTROLLERS-->
 <script src="js/controllers/OptimizerCtrl.js"></script>
@@ -77,11 +88,21 @@
 <!--DIRECTIVES-->
 <script src="js/directives/HeaderDirective.js"></script>
 <script src="js/directives/FooterDirective.js"></script>
-<!--STATE-->
-<script src="js/state.js"></script>
+<script src="js/directives/SettingsDirective.js"></script>
+
+<!--SERVICES-->
+<script src="js/services/CreemSettings.js"></script>
 
 <!--CONROLLERS-->
+<script src="js/controllers/MapCtrl.js"></script>
+<script src="js/controllers/HistoricalConsumptionCtrl.js"></script>
 <script src="js/controllers/HeaderCtrl.js"></script>
+<script src="js/controllers/SettingsCtrl.js"></script>
+
+<!--STATE-->
+<!--keep this part under controllers, services, ...-->
+<script src="js/state.js"></script>
+
 
 <!--MODALS-->
 <script type="text/ng-template" id="building-select" src="js/partials/modals/buildingSelect.html"></script>

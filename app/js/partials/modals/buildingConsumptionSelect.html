@@ -2,12 +2,12 @@
 <div id="scrollable-area">
     <form>
         <table id="building-table" ng-table="tableParams" class="table fixed_headers" show-filter="true">
-            <tr ng-repeat="building in listedBuildings">
+            <tr ng-repeat="building in availableBuildings">
                 <td><input type="checkbox"
-                        ng-checked="buildings.selected.indexOf(building) > -1"
-                        ng-click="changeBuildingsSelection(building)"></td>
+                           ng-checked="selectedBuildingConsumptions.indexOf(building) > -1"
+                           ng-click="changeBuildingConsumptions(building)"></td>
+                <td data-title="'Pod'" filter="{'pod': 'text'}" sortable="'pod'">{{building.pod}}</td>
                 <td data-title="'Codice'" filter="{'codice': 'text'}" sortable="'codice'">{{building.codice}}</td>
-                <td data-title="'Indirizzo'" filter="{'indirizzo': 'text'}" sortable="'indirizzo'">{{building.indirizzo}}</td>
                 <td data-title="'Comune'" filter="{'nome': 'text'}" sortable="'nome'">{{building.nome}}</td>
                 <td data-title="'Provincia'" filter="{'siglaprov': 'text'}" sortable="'siglaprov'">{{building.siglaprov}}</td>
                 <td data-title="'Cluster'" filter="{'clusterEnergy': 'text'}" sortable="'clusterEnergy'">{{building.clusterEnergy}}</td>

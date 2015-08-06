@@ -1,0 +1,154 @@
+<style>
+    .settings {
+        display: flex;
+        border-left: 1px solid rgb(156, 156, 156);
+        border-right: 1px solid rgb(156, 156, 156);
+        z-index: 90;
+        border-bottom: 2px solid rgb(156, 156, 156);
+    }
+    .settings ul {
+        text-align: left;
+        display: flex;
+        margin: 0;
+        list-style: none;
+        width: 100%;
+    }
+    .settings ul li {
+        padding: 10px;
+        text-align: center;
+        flex-grow: 1;
+        float: left;
+        font: bold 12px/18px sans-serif;
+        font-size: 1.1em;
+        display: inline-block;
+        position: relative;
+        background: #486401;
+        color: white;
+        cursor: pointer;
+    }
+    .settings ul li img {
+        height: 1.1em;
+    }
+    .settings ul li:hover {
+        opacity: 0.9;
+        color: #fff;
+        background: #689102;
+    }
+    .settings ul li ul {
+        z-index: 100;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .settings ul li ul li {
+        background: #555;
+        font-weight: normal;
+        font-size: 0.9em;
+        display: block;
+        color: #fff;
+        width: 100%;
+        text-shadow: 0 -1px 0 #000;
+    }
+    .settings ul li:hover ul {
+        margin-top: 10px;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+    .counter-wraper {
+        display: inline-block;
+        vertical-align: bottom;
+        font-weight: normal;
+    }
+    .counter {
+        width: 18px;
+        height: 18px;
+        border-radius: 90px;
+        background-color: #fff;
+        color: black;
+        text-align: center;
+        display: table-cell;
+        overflow: hidden;
+        vertical-align:middle;
+    }
+    .settings .active-option {
+        background-color: #486401;
+        font-weight: bold;
+    }
+
+</style>
+<div class="settings">
+    <ul>
+        <li ng-if="buildings.displayed > 0">
+        <img src="images/icon_building_white.png">
+        <span>Buildings</span>
+            <div class="counter-wraper" ng-if="buildings.selected.length > 0">
+                <div class="counter">{{buildings.selected.length}}</div>
+            </div>
+            <ul>
+                <li ng-repeat="building in buildings.selected">{{building.codice}}
+                    <img align="right" ng-click="removeBuilding(building)" src="images/delete30.png"></li>
+                <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
+            </ul>
+        </li>
+
+<!--TO BE REMOVED FROM APPLICATION-->
+
+        <!--<li ng-if="buildingsConsumption.displayed > 0">-->
+            <!--<img src="images/icon_building_white.png">-->
+            <!--<span>Building Consumption</span>-->
+            <!--<div class="buildings-counter-wraper">-->
+                <!--<div class="buildings-counter">{{buildingsConsumption.selected.length}}</div>-->
+            <!--</div>-->
+            <!--<ul>-->
+                <!--<li ng-repeat="building in buildingsConsumption.selected">{{building.codice}}-->
+                    <!--<img align="right" ng-click="removeBuildingConsumption(building)" src="images/delete30.png"></li>-->
+                <!--<li ng-click="selectBuildingConsumptions()">Add building <img src="images/add112.png"></li>-->
+            <!--</ul>-->
+        <!--</li>-->
+
+
+        <li ng-if="clusters.displayed > 0">
+            <img src="images/cluster.png">
+            Clusters
+            <div class="counter-wraper" ng-if="checkedPositions(clusters.available) > 0">
+                <div class="counter">{{checkedPositions(clusters.available)}}</div>
+            </div>
+            <ul>
+                <li ng-repeat="cluster in clusters.available"
+                    ng-class="cluster.checked ? 'active-option' : ''"
+                    ng-click="cluster.checked = !cluster.checked"
+                    ng-bind="cluster.name">
+                </li>
+            </ul>
+        </li>
+        <li ng-if="provinces.displayed > 0">
+            <img src="images/location_icon.png">
+            Provinces
+            <div class="counter-wraper" ng-if="checkedPositions(provinces.available) > 0">
+                <div class="counter">{{checkedPositions(provinces.available)}}</div>
+            </div>
+            <ul>
+                <li ng-repeat="province in provinces.available"
+                    ng-class="province.checked ? 'active-option' : ''"
+                    ng-click="province.checked = !province.checked"
+                    ng-bind="province.name">
+                </li>
+            </ul>
+        </li>
+        <li ng-if="dateRange.visible">
+            <img src="images/calendar_white.png">
+            Daterange
+            <ul>
+                <li>last week</li>
+                <li>last month</li>
+                <li>last year</li>
+                <li ng-click="showDateRangeModal()">custom</li>
+            </ul>
+        </li>
+    </ul>
+</div>
