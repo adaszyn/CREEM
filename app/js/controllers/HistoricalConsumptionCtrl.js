@@ -151,7 +151,8 @@ CREEMapp.controller("HistoricalConsumptionCtrl", ['$scope','CreemSettings', '$ht
     $scope.updateData = function (response) {
         var tot = 0;
         var chartData = [];
-        for (var i = 0; i < response.length; i++) {
+        //for (var i = 0; i < response.length; i++) {
+        for (var i = 0; i < 10; i++) {
             var consumi = [response[i]['01_am'], response[i]['02_am'], response[i]['03_am'], response[i]['04_am'], response[i]['05_am'], response[i]['06_am'],
                 response[i]['07_am'], response[i]['08_am'], response[i]['09_am'], response[i]['10_am'], response[i]['11_am'], response[i]['12_pm'],
                 response[i]['01_pm'], response[i]['02_pm'], response[i]['03_pm'], response[i]['04_pm'], response[i]['05_pm'], response[i]['06_pm'],
@@ -187,10 +188,11 @@ CREEMapp.controller("HistoricalConsumptionCtrl", ['$scope','CreemSettings', '$ht
         for (var i=0;i<len;i++) {
             $http.get("http://localhost:8080/multiorarie?filterBy=POD&filterParams=" + $scope.buildings[i].pod)
                 .then(function (response) {
-                    if (response.status != 200) return;
-                    $scope.chartData.push($scope.updateData(response.data));
                     j++;
-                    if (j === len) $scope.createChart();
+                    if (response.status == 200 && response.data.length !== 0) {
+                        $scope.chartData.push($scope.updateData(response.data));
+                        if (j === len) $scope.createChart();
+                    }
                 })
         }
     };
