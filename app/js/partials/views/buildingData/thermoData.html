@@ -7,61 +7,115 @@
             <label for="superficielorda">Superficie in pianta lorda [m&sup2;]</label>
             <input type="number"
                    min="0"
-                   step="any"
                    ng-model="data[0].modulo_epi.idImmobile"
+                   to-number
                    class="form-control"
                    id="superficielorda"
                    placeholder="Inserisci il valore ...">
         </div>
         <div class="col-md-4 column">
             <label for="superficienetta">Superficie in pianta netta [m&sup2;]</label>
-            <input type="number" min="0" step="any"  class="form-control" id="superficienetta" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control" id="superficienetta" placeholder="Inserisci il valore ...">
         </div>
         <div class="col-md-4 column">
             <label for="volumelordo">Volume climatizzato lordo [m&sup3;]</label>
-            <input type="number" min="0" step="any"  class="form-control" id="volumelordo" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="volumelordo"
+                   placeholder="Inserisci il valore ...">
         </div>
         <div class="col-md-4 column">
             <label for="denominazione" >Potenza Installata</label>
-            <input type="text" class="form-control" id="potenzainstallata" placeholder="...">
+            <input type="text"
+                   class="form-control"
+                   id="potenzainstallata"
+                   placeholder="...">
         </div>
         <div class="col-md-4 column">
             <label for="numeroPiani" >Numero Piani</label>
-            <input type="text" class="form-control" id="numeroPiani" placeholder="...">
+            <input type="text"
+                   class="form-control"
+                   id="numeroPiani"
+                   placeholder="...">
         </div>
         <div class="col-md-4 column">
             <label for="annoCostruzione">Anno Costruzione</label>
-            <input type="text" class="form-control" id="annoCostruzione" placeholder="...">
+            <input type="text"
+                   class="form-control"
+                   id="annoCostruzione"
+                   placeholder="...">
         </div>
         <div class="col-md-4 column">
             <label for="volumenetto">Volume climatizzato netto [m&sup3;]</label>
-            <input type="number" min="0" step="any"  class="form-control" id="volumenetto" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="volumenetto"
+                   placeholder="Inserisci il valore ...">
         </div>
         <div class="col-md-4 column">
             <label for="altezza">Altezza media dei locali [m]</label>
-            <input type="number" min="0" step="any"  class="form-control" id="altezza" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="altezza"
+                   placeholder="Inserisci il valore ...">
         </div>
         <div class="col-md-4 column">
             <label for="coefficientefx">Coefficiente di utilizzazione f<span class="font-thin">x</span></label>
-            <input type="number" min="0" step="any"  class="form-control" id="coefficientefx" value="0.95" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="coefficientefx"
+                   value="0.95"
+                   placeholder="Inserisci il valore ...">
         </div>
         <div class="col-md-4 column">
             <label for="coefficientefm">Coefficiente di utilizzazione f<span class="font-thin">m</span></label>
-            <input type="number" min="0" step="any"  class="form-control" id="coefficientefm" value="0.95" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="coefficientefm"
+                   value="0.95"
+                   placeholder="Inserisci il valore ...">
         </div>
 
         <div class="col-md-4 column">
             <label for="rendimentonazionale">Rendimento nazionale</label>
-            <input type="number" min="0" step="any"  class="form-control" id="rendimentonazionale" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="rendimentonazionale"
+                   placeholder="Inserisci il valore ...">
         </div>
 
         <div class="col-md-4 column">
             <label for="oremedieLux_Esterna">Ore medie luce esterna</label>
-            <input type="number" min="0" step="any"  class="form-control" id="oremedieLux_Esterna" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="oremedieLux_Esterna"
+                   placeholder="Inserisci il valore ...">
         </div>
         <div class="col-md-4 column">
             <label for="potenzaLux_Interna">Potenza Luce interna</label>
-            <input type="number" min="0" step="any"  class="form-control" id="potenzaLux_Interna" placeholder="Inserisci il valore ...">
+            <input type="number"
+                   min="0"
+                   step="any"
+                   class="form-control"
+                   id="potenzaLux_Interna"
+                   placeholder="Inserisci il valore ...">
         </div>
 
         <div class="col-md-4 column">
@@ -92,4 +146,4 @@
 </form>
 
 
-    {{data[0].modulo_epi.idImmobile}}
+    {{data}}
