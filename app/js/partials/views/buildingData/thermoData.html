@@ -8,6 +8,7 @@
     }
     .building-form input.ng-invalid {
         border-color: red;
+        background-color: rgba(255, 0, 0, 0.13);
     }
 </style>
 <div class="row clearfix"></div>
@@ -21,6 +22,7 @@
                    min="0"
                    ng-model="data[0].modulo_epi.datiedificio.superficielorda"
                    to-number
+                   required
                    class="form-control"
                    placeholder="Inserisci il valore ...">
         </div>
