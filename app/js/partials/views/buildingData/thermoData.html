@@ -1,1 +1,198 @@
-thermoData
+<style>
+    .building-form {
+        border-color: grey;
+        transition: border-color 0.4s linear;
+    }
+    .building-form input.ng-valid {
+        border-color: green;
+    }
+    .building-form input.ng-invalid {
+        border-color: red;
+        background-color: rgba(255, 0, 0, 0.13);
+    }
+</style>
+<div class="row clearfix"></div>
+<form class="form-horizontal" role="form" id="form-datiedificio">
+    <img src="images/pianta.png "><legend class="righter sublegendmenu">DATI TERMOTECNICI</legend>
+<div class="col-md-12 building-form">
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <label>Superficie in pianta lorda [m&sup2;]</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.superficielorda"
+                   to-number
+                   required
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Superficie in pianta netta [m&sup2;]</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.superficienetta"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Volume climatizzato lordo [m&sup3;]</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.volumelordo"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Potenza Installata</label>
+            <input type="text"
+                   class="form-control"
+                   ng-model="data[0].modulo_epi.datiedificio.potenzainstallata"
+                   to-number
+                   placeholder="...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Numero Piani</label>
+            <input type="text"
+                   ng-model="data[0].modulo_epi.datiedificio.numeroPiani"
+                   class="form-control"
+                   placeholder="...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Anno Costruzione</label>
+            <input type="text"
+                   ng-model="data[0].modulo_epi.datiedificio.annoCostruzione"
+                   class="form-control"
+                   placeholder="...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Volume climatizzato netto [m&sup3;]</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.volumenetto"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Altezza media dei locali [m]</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.altezza"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Coefficiente di utilizzazione f<span class="font-thin">x</span></label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.coefficientefx"
+                   to-number
+                   class="form-control"
+                   value="0.95"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Coefficiente di utilizzazione f<span class="font-thin">m</span></label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.coefficientefm"
+                   to-number
+                   class="form-control"
+                   value="0.95"
+                   placeholder="Inserisci il valore ...">
+        </div>
+
+        <div class="col-md-4 column">
+            <label>Rendimento nazionale</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.rendimentonazionale"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+
+        <div class="col-md-4 column">
+            <label>Ore medie luce esterna</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.oremedieLux_Esterna"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Potenza Luce interna</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.potenzaLux_Interna"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+
+        <div class="col-md-4 column">
+            <label>Ore medie luce interna</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.oremedieLux_Interna"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+
+        <div class="col-md-4 column">
+            <label>Potenza Luce esterna</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.potenzaLux_Esterna"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+        <div class="col-md-4 column">
+            <label>Quota caldaie</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.quotaCaldaie"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+
+        <div class="col-md-4 column">
+            <label>Quota Pompe di Calore</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.quotaPdC"
+                   to-number
+                   class="form-control"
+                   placeholder="Inserisci il valore ...">
+        </div>
+
+        <div class="col-md-4 column">
+            <label>Superficie disperdente lorda [m&sup3;]</label>
+            <input type="number"
+                   min="0"
+                   ng-model="data[0].modulo_epi.datiedificio.superficiedisperdentelorda"
+                   to-number
+                   class="form-control"
+                   value="0" placeholder="Inserisci il valore ...">
+        </div>
+    </div>
+</div>
+    <div class="form-group">
+        <div class="col-md-12 column">
+            <button type="button"
+                    ng-click="submit()"
+                    class="span5 btn btn-large btn-success"
+                    style="width: 100%; margin: 10px">Aggiorna dati edificio</button>
+        </div>
+    </div>
+</form>
+
+
+    {{data}}

@@ -3,7 +3,7 @@ a, a:active, a:link, a:visited { text-decoration:none; color: #689102; }
 a:hover { text-decoration: underline; color: #344704; }
 #logo { font-size:32px; font-weight:bold; color:white;}
 #header { background:url(../images/bg_header_green.gif) left top no-repeat; height:123px; }
-#content { background-color: white; border-left:1px solid #9c9c9c; border-right:1px solid #9c9c9c; padding: 10px 0px;}
+#content { background-color: white; border-left:1px solid #9c9c9c; border-right:1px solid #9c9c9c; padding: 20px;}
 #textcontent { padding:10px !important; width:900px !important; } 
 #wrapper { padding-bottom:10px !important; }
 #footer { text-align:center; padding:15px 0px; color: #666; font-size:11px; }
