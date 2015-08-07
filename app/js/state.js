@@ -28,7 +28,7 @@ CREEMapp.config(function($stateProvider, $urlRouterProvider) {
         })
             .state('buildingData.registry', {
                 url: "/registry",
-                templateUrl: "js/partials/views/buildingData/registry.html"
+                templateUrl: "js/partials/views/buildingData/registry.html",
             })
             .state('buildingData.propertyPolicies', {
                 url: "/property_policies",
@@ -36,8 +36,10 @@ CREEMapp.config(function($stateProvider, $urlRouterProvider) {
             })
             .state('buildingData.thermoData', {
                 url: "/thermo_data",
-                templateUrl: "js/partials/views/buildingData/thermoData.html"
-            })
+                templateUrl: "js/partials/views/buildingData/thermoData.html",
+                controller: "FormCtrl"
+
+        })
             .state('buildingData.cooling', {
                 url: "/cooling",
                 templateUrl: "js/partials/views/buildingData/cooling.html"

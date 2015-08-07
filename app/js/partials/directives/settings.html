@@ -14,6 +14,7 @@
         width: 100%;
     }
     .settings ul li {
+        z-index: 100;
         padding: 10px;
         text-align: center;
         flex-grow: 1;
@@ -69,7 +70,8 @@
         height: 18px;
         border-radius: 90px;
         background-color: #fff;
-        color: black;
+        color: grey;
+        font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
         text-align: center;
         display: table-cell;
         overflow: hidden;
@@ -95,22 +97,6 @@
                 <li ng-click="selectBuildings()">Add building <img src="images/add112.png"></li>
             </ul>
         </li>
-
-<!--TO BE REMOVED FROM APPLICATION-->
-
-        <!--<li ng-if="buildingsConsumption.displayed > 0">-->
-            <!--<img src="images/icon_building_white.png">-->
-            <!--<span>Building Consumption</span>-->
-            <!--<div class="buildings-counter-wraper">-->
-                <!--<div class="buildings-counter">{{buildingsConsumption.selected.length}}</div>-->
-            <!--</div>-->
-            <!--<ul>-->
-                <!--<li ng-repeat="building in buildingsConsumption.selected">{{building.codice}}-->
-                    <!--<img align="right" ng-click="removeBuildingConsumption(building)" src="images/delete30.png"></li>-->
-                <!--<li ng-click="selectBuildingConsumptions()">Add building <img src="images/add112.png"></li>-->
-            <!--</ul>-->
-        <!--</li>-->
-
 
         <li ng-if="clusters.displayed > 0">
             <img src="images/cluster.png">
