@@ -1,7 +1,19 @@
+<style>
+    .building-form {
+        border-color: grey;
+        transition: border-color 0.4s linear;
+    }
+    .building-form input.ng-valid {
+        border-color: green;
+    }
+    .building-form input.ng-invalid {
+        border-color: red;
+    }
+</style>
 <div class="row clearfix"></div>
 <form class="form-horizontal" role="form" id="form-datiedificio">
     <img src="images/pianta.png "><legend class="righter sublegendmenu">DATI TERMOTECNICI</legend>
-<div class="col-md-12">
+<div class="col-md-12 building-form">
     <div class="row clearfix">
         <div class="col-md-4 column">
             <label for="superficielorda">Superficie in pianta lorda [m&sup2;]</label>
@@ -143,6 +155,14 @@
         </div>
     </div>
 </div>
+    <div class="form-group">
+        <div class="col-md-12 column">
+            <button type="button"
+                    ng-click="submit()"
+                    class="span5 btn btn-large btn-success"
+                    style="width: 100%; margin: 10px">Aggiorna dati edificio</button>
+        </div>
+    </div>
 </form>
 
 
